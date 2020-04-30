@@ -1,0 +1,2 @@
+(this.webpackJsonpcovid19=this.webpackJsonpcovid19||[]).push([[0],[,,,function(e,n,t){e.exports=t(10)},,,,,function(e,n,t){},function(e,n,t){},function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a),r=t(2),o=t.n(r);t(8),t(9);var i=function(){return c.a.createElement("div",{className:"App"},c.a.createElement("header",null,"COVID-19"))};o.a.render(c.a.createElement(c.a.StrictMode,null,c.a.createElement(i,null)),document.getElementById("root"))}],[[3,1,2]]]);
+//# sourceMappingURL=main.4af1fcc1.chunk.js.map
