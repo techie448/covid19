@@ -1,22 +1,60 @@
+$bgcolor: #282c34;
+
 .App {
   text-align: center;
+
+}
+
+header, footer {
+  background-color: $bgcolor;
+  display: flex;
+  flex-direction: column;
+  color: white;
 }
 
 header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
+
+footer {
+  font-size: calc(8px + 1vmin);
+  min-height: 20vh;
+}
+
+
 body {
-   margin: 0;
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-   sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
- }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+svg {
+  height: 60vh;
+  border: 1px solid black;
+  width: 100%;
+
+}
+
+.raceD {
+  //max-width: 1000px;
+  margin: auto;
+  padding: 50px;
+
+}
+
+.charts {
+}
+
+.barD, .lineD {
+  display: inline-block;
+  width: 30%;
+  margin: 25px;
+
+}
+
