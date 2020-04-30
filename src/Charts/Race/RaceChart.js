@@ -7,6 +7,8 @@ import {easeLinear} from 'd3-ease'
 import {schemePastel2} from 'd3-scale-chromatic'
 import {interpolate, interpolateDate} from 'd3-interpolate'
 import {timeFormat} from 'd3-time-format'
+// eslint-disable-next-line no-unused-vars
+import {transition} from "d3-transition";
 
 
 function RaceChart({data, currDate, startDate}) {
