@@ -1,4 +1,31 @@
 $bgcolor: #282c34;
+$bgcolor-light: #323a46;
+$color-primary-0: #FF0000; // Main Primary color */
+$color-primary-1: #FF6464;
+$color-primary-2: #FF3939;
+$color-primary-3: #C60000;
+$color-primary-4: #9B0000;
+
+$color-secondary-1-0: #FFD300; // Main Secondary color (1) */
+$color-secondary-1-1: #FFE464;
+$color-secondary-1-2: #FFDD39;
+$color-secondary-1-3: #C6A400;
+$color-secondary-1-4: #9B8100;
+
+$color-secondary-2-0: #3914AF; // Main Secondary color (2) */
+$color-secondary-2-1: #735AC4;
+$color-secondary-2-2: #5639B5;
+$color-secondary-2-3: #2B0F88;
+$color-secondary-2-4: #20096B;
+
+$color-complement-0: #00CC00; // Main Complement color */
+$color-complement-1: #55D955;
+$color-complement-2: #2FCF2F;
+$color-complement-3: #009E00;
+$color-complement-4: #007C00;
+* {
+  //border: 1px solid red;
+}
 
 header, footer {
   background-color: $bgcolor;
@@ -7,25 +34,93 @@ header, footer {
 
 header {
   min-height: 100vh;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 3vmin);
   display: grid;
-  grid-template-rows: 20vh auto 40vh;
+  grid-template-rows: 20vh auto 30vh;
+  width: 100vw;
 }
 
 header > a {
   justify-self: end;
   background: url("github.png");
+}
+
+.icon {
   width: 32px;
   height: 32px;
   margin: 20px;
 }
 
-header > span {
+header .heading {
   justify-self: center;
+  text-align: center;
 }
 
 header > div {
   justify-self: stretch;
+}
+
+.info > div {
+  display: grid
+}
+
+.box {
+}
+
+.box.c {
+  background: $color-secondary-2-2;
+}
+
+.box.d {
+  background: $color-primary-2
+}
+
+.box.r {
+  background: $color-complement-0;
+}
+
+.f {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.c.out:hover {
+  box-shadow: inset 0 0 0 1px $color-secondary-2-2;
+}
+
+.r.out:hover {
+  box-shadow: inset 0 0 0 1px $color-complement-4;
+}
+
+.d.out:hover {
+  box-shadow: inset 0 0 0 1px $color-primary-4;
+}
+
+.box {
+  animation-name: boxes;
+  animation: boxes 6s ease-in-out;
+}
+
+
+@keyframes boxes {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.bat {
+  height: 20vh;
+  display: block;
+  margin-bottom: 40px;
+  transition: 3s ease-out;
+
+
+}
+
+.bat:hover {
+  transform: scale(1.4) translate(0, -20px);
+  filter: drop-shadow(12px 12px 8px rgba(0, 0, 0, 0.6));
+
 }
 
 footer {
@@ -33,6 +128,36 @@ footer {
   min-height: 20vh;
 }
 
+.info {
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+  text-align: center;
+  font-size: calc(8px + 1vmin);
+  font-weight: bold;
+
+}
+
+//.info > div {
+//  background: #323a46;
+//  margin: 20px;
+//  padding: 20px;
+//}
+
+.info > div {
+  background: $bgcolor-light;
+  padding-top: 50px;
+  margin: 0 20px;
+  transition: 1s;
+
+}
+
+
+.info > div > svg {
+  display: block;
+  height: 8vh;
+  width: 8vw;
+  margin: auto;
+}
 
 body {
   margin: 0;
@@ -43,7 +168,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-svg {
+.charts svg {
   height: 60vh;
   border: 1px solid black;
   width: 100%;
