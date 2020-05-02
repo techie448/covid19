@@ -13,33 +13,33 @@ function BarChart({data, days, type}) {
     const xAxisRef = useRef()
     const yAxisRef = useRef()
     const dimensions = useResizeObserver(wrapperDivRef)
-    const margin = {
-        top: 20,
-        bottom: 20,
-        left: 50,
-        right: 5
-    }
+
     useEffect(() => {
+        const margin = {
+            top: 20,
+            bottom: 20,
+            left: 50,
+            right: 5
+        }
         const svg = select(svgRef.current)
         if (!dimensions) return
         const {width, height} = dimensions;
 
-        data = data.slice(-days)
-        data = data.map(d => {
+        const barData = data.slice(-days).map(d => {
             return {
                 date: d.date,
                 input: d[type]
             }
         });
         const gap = 1.15;
-        const bar = (width - margin.left - margin.right) / data.length / gap;
+        const bar = (width - margin.left - margin.right) / barData.length / gap;
         const xScale = scaleTime().range([margin.left, width - margin.right]);
         const yScale = scaleLinear().range([height - margin.bottom, margin.top]);
         const xAxis = axisBottom().scale(xScale)
             .tickFormat(timeFormat('%d %b'))
         const yAxis = axisLeft().scale(yScale);
-        const dateDomain = extent(data, d => d.date);
-        const inputMax = max(data, d => d.input);
+        const dateDomain = extent(barData, d => d.date);
+        const inputMax = max(barData, d => d.input);
         xScale.domain(dateDomain)
         yScale.domain([0, inputMax])
 
@@ -53,7 +53,7 @@ function BarChart({data, days, type}) {
 
         svg
             .selectAll('.rect')
-            .data(data)
+            .data(barData)
             .join(enter => enter.append('rect'))
             .attr('class', 'rect')
             .attr('x', (d, i) => margin.left + (i * bar * gap))

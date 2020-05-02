@@ -8,23 +8,22 @@ import {axisBottom, axisLeft} from 'd3-axis'
 import {line} from 'd3-shape'
 
 function LineChart({data, days, type}) {
-    console.log(type)
     const svgRef = useRef()
     const xAxisRef = useRef()
     const yAxisRef = useRef()
     const wrapperDivRef = useRef()
     const dimensions = useResizeObserver(wrapperDivRef)
-    const margin = {
-        top: 20,
-        bottom: 20,
-        left: 50,
-        right: 5
-    }
+
     const [lines, setLines] = useState({})
 
 
     useEffect(() => {
-        const svg = select(svgRef.current)
+        const margin = {
+            top: 20,
+            bottom: 20,
+            left: 50,
+            right: 5
+        }
         if (!dimensions) return
         const {width, height} = dimensions;
 
@@ -35,30 +34,30 @@ function LineChart({data, days, type}) {
             .tickFormat(timeFormat('%d %b'))
         const yAxis = axisLeft().scale(yScale);
 
-        data = data.slice(-days);
-        const dateDomain = extent(data, d => d.date);
-        const confirmedMax = max(data, d => d.confirmed);
+        const lineData = data.slice(-days);
+        const dateDomain = extent(lineData, d => d.date);
+        const confirmedMax = max(lineData, d => d.confirmed);
         xScale.domain(dateDomain)
         yScale.domain([0, confirmedMax])
         lineG.x(d => xScale(d.date))
         lineG.y(d => yScale(d.confirmed))
-        const confirmed = (lineG(data))
+        const confirmed = (lineG(lineData))
         lineG.y(d => yScale(d.deaths))
-        const deaths = (lineG(data))
+        const deaths = (lineG(lineData))
         lineG.y(d => yScale(d.recovered))
-        const recovered = (lineG(data))
+        const recovered = (lineG(lineData))
         setLines({confirmed: confirmed, deaths: deaths, recovered: recovered})
         select(xAxisRef.current).call(xAxis).attr('transform', `translate(0,${height - margin.bottom})`);
         select(yAxisRef.current).call(yAxis).attr('transform', `translate(${margin.left},0)`);
 
 
-    }, [data, type, dimensions])
+    }, [data, type, dimensions, days])
 
     return (
         <div ref={wrapperDivRef}>
             <svg ref={svgRef}>
                 {Object.keys(type).map(b => type[b] ? (
-                        <path d={lines[b]} fill='none' stroke='black' strokeWidth='2.5px'/>
+                    <path d={lines[b]} fill='none' stroke='black' strokeWidth='2.5px' key={type}/>
                     ) : ''
                 )}
                 <g>

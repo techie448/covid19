@@ -4,6 +4,8 @@ import useInterval from "../../Hooks/useInterval";
 
 function Race({inputData, startDate, endDate}) {
 
+    // todo add buttons to change conf death etc. and add button to reset and replay race
+
     const [type, setType] = useState('confirmed')
     const [currDate, setCurrDate] = useState(startDate)
     const [begin, setBegin] = useState(true)

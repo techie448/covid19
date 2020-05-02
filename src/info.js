@@ -7,12 +7,12 @@ import CountUp from 'react-countup';
 
 function Info({endDate, count}) {
     return (
-        <div class="info">
+        <div className="info">
             <div className='c out'>
                 <Confirmed/>
                 <p><CountUp end={count.confirmed}/></p>
                 <p>Tested Positive</p>
-                <div class='c box'></div>
+                <div className='c box'></div>
             </div
             >
             <div className='r out'><Recovered/> <p><CountUp end={count.recovered}/></p> <p> Recovered</p>

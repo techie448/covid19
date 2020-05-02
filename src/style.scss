@@ -23,8 +23,18 @@ $color-complement-1: #55D955;
 $color-complement-2: #2FCF2F;
 $color-complement-3: #009E00;
 $color-complement-4: #007C00;
+
+
 * {
-  //border: 1px solid red;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 }
 
 header, footer {
@@ -32,12 +42,17 @@ header, footer {
   color: white;
 }
 
+footer {
+  font-size: calc(8px + 1vmin);
+  min-height: 20vh;
+}
+
 header {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   font-size: calc(10px + 3vmin);
   display: grid;
-  grid-template-rows: 20vh auto 30vh;
-  width: 100vw;
+  grid-template-rows: 1fr 3fr 2fr;
 }
 
 header > a {
@@ -56,16 +71,69 @@ header .heading {
   text-align: center;
 }
 
-header > div {
-  justify-self: stretch;
+.bat {
+  height: 20vh;
+  width: auto;
+  display: block;
+  margin: auto auto 40px auto;
+  transition: 3s ease-out;
 }
 
-.info > div {
-  display: grid
+.bat:hover {
+  transform: scale(1.4) translate(0, -20px);
+  filter: drop-shadow(12px 12px 8px rgba(0, 0, 0, 0.6));
+
 }
 
-.box {
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+  font-size: calc(8px + 1vmin);
+  font-weight: bold;
+  column-gap: 10px;
 }
+
+.out {
+  background: $bgcolor-light;
+  transition: 1s;
+  display: grid;
+  grid-template-rows: 3fr 1fr 1fr 1.5px;
+
+}
+
+.out > svg {
+  display: block;
+  height: 8vh;
+  width: 8vw;
+  place-self: center;
+}
+
+
+.charts svg {
+  height: 60vh;
+  border: 1px solid black;
+  width: 100%;
+
+}
+
+.raceD {
+  //max-width: 1000px;
+  margin: auto;
+  padding: 50px;
+
+}
+
+.charts {
+}
+
+.barD, .lineD {
+  display: inline-block;
+  width: 30%;
+  margin: 25px;
+
+}
+
 
 .box.c {
   background: $color-secondary-2-2;
@@ -108,87 +176,32 @@ header > div {
   }
 }
 
-.bat {
-  height: 20vh;
-  display: block;
-  margin-bottom: 40px;
-  transition: 3s ease-out;
+@media only all and (max-width: 768px) {
+
+  header {
+    grid-template-rows: 0.5fr 2fr 3fr;
+  }
 
 
-}
+  .info {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
 
-.bat:hover {
-  transform: scale(1.4) translate(0, -20px);
-  filter: drop-shadow(12px 12px 8px rgba(0, 0, 0, 0.6));
+  .out {
+    background: $bgcolor-light;
+    transition: 1s;
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr 1.5px;
 
-}
-
-footer {
-  font-size: calc(8px + 1vmin);
-  min-height: 20vh;
-}
-
-.info {
-  display: grid;
-  grid-template-columns: 25vw 25vw 25vw 25vw;
-  text-align: center;
-  font-size: calc(8px + 1vmin);
-  font-weight: bold;
-
-}
-
-//.info > div {
-//  background: #323a46;
-//  margin: 20px;
-//  padding: 20px;
-//}
-
-.info > div {
-  background: $bgcolor-light;
-  padding-top: 50px;
-  margin: 0 20px;
-  transition: 1s;
-
-}
-
-
-.info > div > svg {
-  display: block;
-  height: 8vh;
-  width: 8vw;
-  margin: auto;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.charts svg {
-  height: 60vh;
-  border: 1px solid black;
-  width: 100%;
-
-}
-
-.raceD {
-  //max-width: 1000px;
-  margin: auto;
-  padding: 50px;
-
-}
-
-.charts {
-}
-
-.barD, .lineD {
-  display: inline-block;
-  width: 30%;
-  margin: 25px;
+  }
+  .out > svg {
+    display: block;
+    height: 8vh;
+    width: 8vw;
+    place-self: center;
+  }
 
 }
 
