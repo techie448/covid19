@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/covid19/static/css/main.c79f2e0f.chunk.css",
-    "main.js": "/covid19/static/js/main.bf999be4.chunk.js",
-    "main.js.map": "/covid19/static/js/main.bf999be4.chunk.js.map",
+    "main.css": "/covid19/static/css/main.3de4b1d2.chunk.css",
+    "main.js": "/covid19/static/js/main.8868dcab.chunk.js",
+    "main.js.map": "/covid19/static/js/main.8868dcab.chunk.js.map",
     "runtime-main.js": "/covid19/static/js/runtime-main.06ba182b.js",
     "runtime-main.js.map": "/covid19/static/js/runtime-main.06ba182b.js.map",
-    "static/js/2.70d3cc55.chunk.js": "/covid19/static/js/2.70d3cc55.chunk.js",
-    "static/js/2.70d3cc55.chunk.js.map": "/covid19/static/js/2.70d3cc55.chunk.js.map",
+    "static/js/2.0747cd43.chunk.js": "/covid19/static/js/2.0747cd43.chunk.js",
+    "static/js/2.0747cd43.chunk.js.map": "/covid19/static/js/2.0747cd43.chunk.js.map",
     "index.html": "/covid19/index.html",
-    "precache-manifest.b6e8a93c7a55b18d23d3025301ae7ac5.js": "/covid19/precache-manifest.b6e8a93c7a55b18d23d3025301ae7ac5.js",
+    "precache-manifest.3adba81d97073d9e0180647feb4d43bc.js": "/covid19/precache-manifest.3adba81d97073d9e0180647feb4d43bc.js",
     "service-worker.js": "/covid19/service-worker.js",
-    "static/css/main.c79f2e0f.chunk.css.map": "/covid19/static/css/main.c79f2e0f.chunk.css.map",
-    "static/js/2.70d3cc55.chunk.js.LICENSE.txt": "/covid19/static/js/2.70d3cc55.chunk.js.LICENSE.txt"
+    "static/css/main.3de4b1d2.chunk.css.map": "/covid19/static/css/main.3de4b1d2.chunk.css.map",
+    "static/js/2.0747cd43.chunk.js.LICENSE.txt": "/covid19/static/js/2.0747cd43.chunk.js.LICENSE.txt",
+    "static/media/bat.be03eb0c.svg": "/covid19/static/media/bat.be03eb0c.svg",
+    "static/media/death.dd5c102b.svg": "/covid19/static/media/death.dd5c102b.svg",
+    "static/media/fight.c8918197.svg": "/covid19/static/media/fight.c8918197.svg",
+    "static/media/medical.cf80106c.svg": "/covid19/static/media/medical.cf80106c.svg",
+    "static/media/virus.a469a177.svg": "/covid19/static/media/virus.a469a177.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.06ba182b.js",
-    "static/js/2.70d3cc55.chunk.js",
-    "static/css/main.c79f2e0f.chunk.css",
-    "static/js/main.bf999be4.chunk.js"
+    "static/js/2.0747cd43.chunk.js",
+    "static/css/main.3de4b1d2.chunk.css",
+    "static/js/main.8868dcab.chunk.js"
   ]
 }
