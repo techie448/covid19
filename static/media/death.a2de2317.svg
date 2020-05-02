@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="512px" viewBox="-6 0 512 512" width="512px" class="">
+    <g>
+        <path d="m499.328125 512h-499.328125l13.984375-24.046875c48.75-83.855469 139.070313-135.953125 235.679687-135.953125 96.609376 0 186.929688 52.097656 235.679688 135.953125zm0 0"
+              fill="#c59969" data-original="#C59969" class="active-path" style="fill:#C60000" data-old_color="#c59969"/>
+        <path d="m441.664062 431.472656c-50.511718-50.113281-119.488281-79.472656-192-79.472656-72.511718 0-141.488281 29.359375-192 79.472656 0 17.96875 14.558594 32.527344 32.527344 32.527344h318.929688c17.984375 0 32.542968-14.558594 32.542968-32.527344zm0 0"
+              fill="#ba8a5a" data-original="#BA8A5A" class="" style="fill:#9B0000" data-old_color="#ba8a5a"/>
+        <path d="m409.664062 432h-320v-272c0-88.222656 71.777344-160 160-160 88.222657 0 160 71.777344 160 160zm0 0"
+              fill="#b0b4b9" data-original="#B0B4B9"/>
+        <path d="m89.664062 400h320v32h-320zm0 0" fill="#9da3aa" data-original="#9DA3AA"/>
+        <g fill="#fff">
+            <path d="m201.664062 128h96v32h-96zm0 0" data-original="#FFF" class=""/>
+            <path d="m169.664062 192h160v32h-160zm0 0" data-original="#FFF" class=""/>
+            <path d="m185.664062 256h128v32h-128zm0 0" data-original="#FFF" class=""/>
+        </g>
+    </g>
+</svg>

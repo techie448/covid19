@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/covid19/static/css/main.e767da0b.chunk.css",
-    "main.js": "/covid19/static/js/main.825a9cdd.chunk.js",
-    "main.js.map": "/covid19/static/js/main.825a9cdd.chunk.js.map",
+    "main.css": "/covid19/static/css/main.2428d812.chunk.css",
+    "main.js": "/covid19/static/js/main.5b441ced.chunk.js",
+    "main.js.map": "/covid19/static/js/main.5b441ced.chunk.js.map",
     "runtime-main.js": "/covid19/static/js/runtime-main.06ba182b.js",
     "runtime-main.js.map": "/covid19/static/js/runtime-main.06ba182b.js.map",
     "static/js/2.0747cd43.chunk.js": "/covid19/static/js/2.0747cd43.chunk.js",
     "static/js/2.0747cd43.chunk.js.map": "/covid19/static/js/2.0747cd43.chunk.js.map",
     "index.html": "/covid19/index.html",
-    "precache-manifest.09aae259b6146f7950733d780f7b10eb.js": "/covid19/precache-manifest.09aae259b6146f7950733d780f7b10eb.js",
+    "precache-manifest.31da209f4a369f7a3568ce3ed6a6acbb.js": "/covid19/precache-manifest.31da209f4a369f7a3568ce3ed6a6acbb.js",
     "service-worker.js": "/covid19/service-worker.js",
-    "static/css/main.e767da0b.chunk.css.map": "/covid19/static/css/main.e767da0b.chunk.css.map",
+    "static/css/main.2428d812.chunk.css.map": "/covid19/static/css/main.2428d812.chunk.css.map",
     "static/js/2.0747cd43.chunk.js.LICENSE.txt": "/covid19/static/js/2.0747cd43.chunk.js.LICENSE.txt",
-    "static/media/bat.be03eb0c.svg": "/covid19/static/media/bat.be03eb0c.svg",
-    "static/media/death.dd5c102b.svg": "/covid19/static/media/death.dd5c102b.svg",
-    "static/media/fight.c8918197.svg": "/covid19/static/media/fight.c8918197.svg",
-    "static/media/medical.cf80106c.svg": "/covid19/static/media/medical.cf80106c.svg",
-    "static/media/virus.a469a177.svg": "/covid19/static/media/virus.a469a177.svg"
+    "static/media/bat.fff1a8d5.svg": "/covid19/static/media/bat.fff1a8d5.svg",
+    "static/media/death.a2de2317.svg": "/covid19/static/media/death.a2de2317.svg",
+    "static/media/fight.1aed6678.svg": "/covid19/static/media/fight.1aed6678.svg",
+    "static/media/medical.6fd55c70.svg": "/covid19/static/media/medical.6fd55c70.svg",
+    "static/media/virus.136ce0f1.svg": "/covid19/static/media/virus.136ce0f1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.06ba182b.js",
     "static/js/2.0747cd43.chunk.js",
-    "static/css/main.e767da0b.chunk.css",
-    "static/js/main.825a9cdd.chunk.js"
+    "static/css/main.2428d812.chunk.css",
+    "static/js/main.5b441ced.chunk.js"
   ]
 }
