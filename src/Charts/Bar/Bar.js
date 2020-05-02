@@ -1,20 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import BarChart from "./BarChart";
+import ChildSelection from "../ChildSelection";
 
-function Bar({inputData}) {
+function Bar({inputData, days, types}) {
 
     const [data, setData] = useState({})
-    const [type, setType] = useState('confirmed')
-    const [days, setDays] = useState(40)
-
+    const [type, setType] = useState(null)
+    const updateType = (e) => {
+        e.preventDefault()
+        setType(e.target.value)
+    }
     useEffect(() => {
         setData(inputData)
-    }, [inputData])
+        setType(types[0])
+    }, [types, inputData])
 
 
     if (Object.keys(inputData).length < 1) return ('Loading...')
     return (
         <div className='barD'>
+
+            <ChildSelection types={types} btnClick={updateType}/>
 
             <BarChart data={data} type={type} days={days}/>
 

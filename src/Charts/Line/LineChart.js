@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import useResizeObserver from "../../Hooks/useResizeObserver";
 import {select} from 'd3-selection'
 import {scaleLinear, scaleTime} from 'd3-scale'
@@ -8,6 +8,7 @@ import {axisBottom, axisLeft} from 'd3-axis'
 import {line} from 'd3-shape'
 
 function LineChart({data, days, type}) {
+    console.log(type)
     const svgRef = useRef()
     const xAxisRef = useRef()
     const yAxisRef = useRef()
@@ -19,6 +20,7 @@ function LineChart({data, days, type}) {
         left: 50,
         right: 5
     }
+    const [lines, setLines] = useState({})
 
 
     useEffect(() => {
@@ -40,37 +42,25 @@ function LineChart({data, days, type}) {
         yScale.domain([0, confirmedMax])
         lineG.x(d => xScale(d.date))
         lineG.y(d => yScale(d.confirmed))
-        const confirmed = lineG(data)
+        const confirmed = (lineG(data))
         lineG.y(d => yScale(d.deaths))
-        const deaths = lineG(data)
+        const deaths = (lineG(data))
         lineG.y(d => yScale(d.recovered))
-        const recovered = lineG(data)
-
-        svg.append('path')
-            .attr('d', confirmed)
-            .attr('fill', 'none')
-            .attr('stroke', 'blue')
-            .attr('stroke-width', '2.5px')
-        svg.append('path')
-            .attr('d', deaths)
-            .attr('fill', 'none')
-            .attr('stroke', 'red')
-            .attr('stroke-width', '2.5px')
-        svg.append('path')
-            .attr('d', recovered)
-            .attr('fill', 'none')
-            .attr('stroke', 'green')
-            .attr('stroke-width', '2.5px')
-
+        const recovered = (lineG(data))
+        setLines({confirmed: confirmed, deaths: deaths, recovered: recovered})
         select(xAxisRef.current).call(xAxis).attr('transform', `translate(0,${height - margin.bottom})`);
         select(yAxisRef.current).call(yAxis).attr('transform', `translate(${margin.left},0)`);
 
 
-    }, [data, dimensions])
+    }, [data, type, dimensions])
 
     return (
         <div ref={wrapperDivRef}>
             <svg ref={svgRef}>
+                {Object.keys(type).map(b => type[b] ? (
+                        <path d={lines[b]} fill='none' stroke='black' strokeWidth='2.5px'/>
+                    ) : ''
+                )}
                 <g>
                     <g ref={xAxisRef}/>
                     <g ref={yAxisRef}/>

@@ -55,7 +55,7 @@ function BarChart({data, days, type}) {
             .selectAll('.rect')
             .data(data)
             .join(enter => enter.append('rect'))
-            .attr('class', '.rect')
+            .attr('class', 'rect')
             .attr('x', (d, i) => margin.left + (i * bar * gap))
             .attr('y', d => {
                 return yScale(d.input)
@@ -67,7 +67,7 @@ function BarChart({data, days, type}) {
             .attr('width', bar)
 
 
-    }, [data, dimensions])
+    }, [data, days, dimensions, type])
 
     return (
         <div ref={wrapperDivRef}>

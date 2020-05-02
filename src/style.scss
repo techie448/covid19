@@ -1,22 +1,31 @@
 $bgcolor: #282c34;
 
-.App {
-  text-align: center;
-
-}
-
 header, footer {
   background-color: $bgcolor;
-  display: flex;
-  flex-direction: column;
   color: white;
 }
 
 header {
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
+  display: grid;
+  grid-template-rows: 20vh auto 40vh;
+}
+
+header > a {
+  justify-self: end;
+  background: url("github.png");
+  width: 32px;
+  height: 32px;
+  margin: 20px;
+}
+
+header > span {
+  justify-self: center;
+}
+
+header > div {
+  justify-self: stretch;
 }
 
 footer {

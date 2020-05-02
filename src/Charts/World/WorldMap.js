@@ -10,15 +10,28 @@ function WorldMap({data, type, world}) {
     const wrapperDivRef = useRef()
     const dimensions = useResizeObserver(wrapperDivRef)
     const [sel, setSel] = useState(null)
+    const colorRange = {
+        confirmed: ['#ffffff', '#5777C0', '#365BB0'],
+        deaths: ['#ffffff', '#FF6464', '#FF3939'],
+        recovered: ['#ffffff', '#55D955', '#2FCF2F']
+    }
+    const midRange = {
+        confirmed: 30000,
+        deaths: 5000,
+        recovered: 20000
+    }
 
     useEffect(() => {
         if (!dimensions) return
         const svg = select(svgRef.current)
         const minV = min(Object.entries(data), d => d[1][0][type]);
         const maxV = max(Object.entries(data), d => d[1][0][type]);
-        const cscale = scaleLinear()
-            .domain([minV, 30000, maxV])
-            .range(['#fff', '#ff9090', '#ff5050'])
+
+
+        const getColors = (country, type) => {
+            const scale = scaleLinear().domain([minV, midRange[type], maxV]).range(colorRange[type])
+            return scale(data[country][0][type])
+        }
 
         const projection = geoMercator()
             .fitSize([dimensions.width, dimensions.height], sel || world)
@@ -36,9 +49,8 @@ function WorldMap({data, type, world}) {
             })
             .attr('class', 'country')
             .transition()
-
             .attr('fill', f =>
-                (data[f.properties.name]) ? cscale(data[f.properties.name][0][type])
+                (data[f.properties.name]) ? getColors(f.properties.name, type)
                     : '#fff'
             )
             .attr('d', f => pathGen(f))

@@ -10,15 +10,21 @@ function Race({inputData, startDate, endDate}) {
     const [data, setData] = useState({})
 
     useEffect(() => {
+        if (!inputData || Object.keys(inputData).length < 1) return
+
         setData(Object.entries(inputData)
-            .map(d => ({
-                country: d[0],
-                value: d[1].filter(d =>
-                    d.date.getTime() === currDate.getTime()
-                )[0][type]
-            }))
+            .map(d => {
+                return ({
+                    country: d[0],
+                    value: d[1].filter(d => {
+                            return d.date.getTime() === currDate.getTime()
+                        }
+                    )[0][type]
+                })
+            })
             .sort((a, b) => b.value - a.value)
             .slice(0, 10))
+
     }, [currDate, type, inputData])
 
     useInterval(() => {
