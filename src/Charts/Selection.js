@@ -2,7 +2,7 @@ import React from 'react';
 
 function Selection({updateCountry, updateDays, country, days, countries, maxDays}) {
     return (
-        <div>
+        <div className='sel'>
             <select onChange={updateCountry} value={country}>
                 {
                     countries.map(c => {

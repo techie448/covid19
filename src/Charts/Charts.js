@@ -44,11 +44,21 @@ function Charts({dataset, latestDataset}) {
 
     return (
         <div className='charts'>
-            <Race inputData={data} startDate={startDate} endDate={endDate}/>
-            <Selection updateCountry={updateCountry} updateDays={updateDays} country={country} days={days}
-                       countries={countries} maxDays={maxDays}/>
-            <Line inputData={data[country]} days={days} types={types}/>
-            <Bar inputData={data[country]} days={days} types={types}/>
+            <div className={'title'}> World Race Chart</div>
+            <Race inputData={data} startDate={startDate} endDate={endDate} types={types}/>
+            <div className={'title'}> Historical Data</div>
+            <div className='lbD'>
+                <div>
+                    <Selection updateCountry={updateCountry} updateDays={updateDays} country={country} days={days}
+                               countries={countries} maxDays={maxDays}/></div>
+
+                <div className='libDCharts'>
+                    <Line inputData={data[country]} days={days} types={types}/>
+                    <Bar inputData={data[country]} days={days} types={types}/>
+                </div>
+            </div>
+            <div className={'title'}>Global Visualization</div>
+
             <World inputData={latestDataset} types={types}/>
         </div>
     );

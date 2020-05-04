@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import RaceChart from "./RaceChart";
 import useInterval from "../../Hooks/useInterval";
+import ChildSelection from "../ChildSelection";
+import userEvent from "@testing-library/user-event";
 
-function Race({inputData, startDate, endDate}) {
+function Race({inputData, startDate, endDate, types}) {
 
     // todo add buttons to change conf death etc. and add button to reset and replay race
 
-    const [type, setType] = useState('confirmed')
+    const [type, setType] = useState(null)
     const [currDate, setCurrDate] = useState(startDate)
     const [begin, setBegin] = useState(true)
     const [data, setData] = useState({})
+    useEffect(() => {
+        setType(types[0])
 
+    }, [types])
     useEffect(() => {
         if (!inputData || Object.keys(inputData).length < 1) return
 
@@ -28,6 +33,23 @@ function Race({inputData, startDate, endDate}) {
             .slice(0, 10))
 
     }, [currDate, type, inputData])
+    const updateType = (e) => {
+        e.preventDefault()
+        setType(e.target.value)
+        setBegin(false)
+        setCurrDate(startDate)
+
+    }
+    const resetGraph = (e) => {
+        e.preventDefault()
+        if (e.target.value === 'start') setBegin(true)
+        if (e.target.value === 'pause') setBegin(false)
+        if (e.target.value === 'reset') {
+            setCurrDate(startDate)
+            setBegin(false)
+        }
+
+    }
 
     useInterval(() => {
         if (begin && !(currDate.getTime() === endDate.getTime())) {
@@ -38,7 +60,16 @@ function Race({inputData, startDate, endDate}) {
     if (Object.keys(data).length < 1) return ('Loading...')
     return (
         <div className='raceD'>
+            <div className={'buttonsGrp'}>
 
+                <div className={'buttons'}>
+                    <button onClick={resetGraph} value='reset' className={'redBtn'}>reset</button>
+                    <button onClick={resetGraph} value='start' className={'greenBtn'}>start</button>
+                    <button onClick={resetGraph} value='pause' className={'blueBtn'}>pause</button>
+                </div>
+                <ChildSelection types={types} btnClick={updateType} selected={type}/>
+
+            </div>
             <RaceChart data={data} startDate={startDate} currDate={currDate}/>
 
         </div>

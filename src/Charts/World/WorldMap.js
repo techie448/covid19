@@ -52,7 +52,7 @@ function WorldMap({data, type, world}) {
             .transition()
             .attr('fill', f =>
                 (data[f.properties.name]) ? getColors(f.properties.name, type)
-                    : '#fff'
+                    : '#ffffff'
             )
             .attr('d', f => pathGen(f))
 

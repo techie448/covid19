@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-function ChildSelection({types, btnClick}) {
+function ChildSelection({types, btnClick, selected}) {
+
+
     return (
-        <div>
+        <div className='buttons'>
             {types.map((val, index) => (
-                    <button key={index} onClick={btnClick} value={val}>{val}</button>
+                    <button key={index} onClick={btnClick} value={val} className={
+                        (selected === val) ? (
+                            (val === 'confirmed') ? 'blueBtn' : (val === 'deaths') ? 'redBtn' : (val === 'recovered') ? 'greenBtn' : ''
+                        ) : ''
+
+                    }>{val}</button>
                 )
             )}
         </div>

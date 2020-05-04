@@ -17,9 +17,10 @@ function World({inputData, types}) {
     }
     if (Object.keys(data).length < 1) return ('Loading...')
     return (
-        <div>
-            <h1> World Map Geo</h1>
-            <ChildSelection types={types} btnClick={updateType}/>
+        <div className='worldD'>
+            <div>
+                <ChildSelection types={types} btnClick={updateType} selected={type}/>
+            </div>
             <WorldMap data={data} world={land} type={type}/>
         </div>
     );

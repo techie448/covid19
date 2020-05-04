@@ -20,7 +20,7 @@ function Bar({inputData, days, types}) {
     return (
         <div className='barD'>
 
-            <ChildSelection types={types} btnClick={updateType}/>
+            <ChildSelection types={types} btnClick={updateType} selected={type}/>
 
             <BarChart data={data} type={type} days={days}/>
 

@@ -35,9 +35,12 @@ function BarChart({data, days, type}) {
         const bar = (width - margin.left - margin.right) / barData.length / gap;
         const xScale = scaleTime().range([margin.left, width - margin.right]);
         const yScale = scaleLinear().range([height - margin.bottom, margin.top]);
-        const xAxis = axisBottom().scale(xScale)
+        const xAxis = axisBottom().scale(xScale).ticks(7)
             .tickFormat(timeFormat('%d %b'))
-        const yAxis = axisLeft().scale(yScale);
+
+
+        const yAxis = axisLeft().scale(yScale).ticks(7)
+        ;
         const dateDomain = extent(barData, d => d.date);
         const inputMax = max(barData, d => d.input);
         xScale.domain(dateDomain)
@@ -45,10 +48,12 @@ function BarChart({data, days, type}) {
 
         select(xAxisRef.current)
             .call(xAxis)
+            .style('font-size', '13px')
             .attr('transform', `translate(0,${height - margin.bottom})`);
 
         select(yAxisRef.current)
             .call(yAxis)
+            .style('font-size', '13px')
             .attr('transform', `translate(${margin.left},0)`);
 
         svg

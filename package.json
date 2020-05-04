@@ -17,6 +17,7 @@
     "react": "^16.13.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
+    "react-number-format": "^4.4.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "d3-axis": "^1.0.12",
+    "d3-format": "^1.4.4",
     "d3-interpolate": "^1.4.0",
     "d3-scale": "^3.2.1",
     "d3-scale-chromatic": "^1.5.0",

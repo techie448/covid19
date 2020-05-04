@@ -7,7 +7,7 @@ import {timeFormat} from 'd3-time-format'
 import {axisBottom, axisLeft} from 'd3-axis'
 import {line} from 'd3-shape'
 
-function LineChart({data, days, type}) {
+function LineChart({data, days, type, classes}) {
     const svgRef = useRef()
     const xAxisRef = useRef()
     const yAxisRef = useRef()
@@ -30,9 +30,9 @@ function LineChart({data, days, type}) {
         const xScale = scaleTime().range([margin.left, width - margin.right]);
         const yScale = scaleLinear().range([height - margin.bottom, margin.top]);
         const lineG = line()
-        const xAxis = axisBottom().scale(xScale)
+        const xAxis = axisBottom().scale(xScale).ticks(7)
             .tickFormat(timeFormat('%d %b'))
-        const yAxis = axisLeft().scale(yScale);
+        const yAxis = axisLeft().scale(yScale).ticks(7);
 
         const lineData = data.slice(-days);
         const dateDomain = extent(lineData, d => d.date);
@@ -47,8 +47,8 @@ function LineChart({data, days, type}) {
         lineG.y(d => yScale(d.recovered))
         const recovered = (lineG(lineData))
         setLines({confirmed: confirmed, deaths: deaths, recovered: recovered})
-        select(xAxisRef.current).call(xAxis).attr('transform', `translate(0,${height - margin.bottom})`);
-        select(yAxisRef.current).call(yAxis).attr('transform', `translate(${margin.left},0)`);
+        select(xAxisRef.current).call(xAxis).attr('transform', `translate(0,${height - margin.bottom})`).style('font-size', '13px');
+        select(yAxisRef.current).call(yAxis).attr('transform', `translate(${margin.left},0)`).style('font-size', '13px');
 
 
     }, [data, type, dimensions, days])
@@ -57,7 +57,7 @@ function LineChart({data, days, type}) {
         <div ref={wrapperDivRef}>
             <svg ref={svgRef}>
                 {Object.keys(type).map(b => type[b] ? (
-                    <path d={lines[b]} fill='none' stroke='black' strokeWidth='2.5px' key={type}/>
+                    <path d={lines[b]} fill='none' className={classes[b]} strokeWidth='2.5px' key={b}/>
                     ) : ''
                 )}
                 <g>

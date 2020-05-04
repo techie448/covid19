@@ -9,6 +9,13 @@ function Header({count}) {
             <div className='heading'>
                 <Bat className="bat"/>
                 COVID-19 Dashboard
+                <blockquote>
+                    When something bad happens you have three choices. You can either let it define you, let it destroy
+                    you, or you can let it <strong>strengthen</strong> you.
+                </blockquote>
+                <figcaption>
+                    &mdash; Dr. Seuss
+                </figcaption>
             </div>
             <Info count={count}/>
 
