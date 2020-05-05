@@ -18,8 +18,13 @@ function World({inputData, types}) {
     if (Object.keys(data).length < 1) return ('Loading...')
     return (
         <div className='worldD'>
-            <div>
-                <ChildSelection types={types} btnClick={updateType} selected={type}/>
+            <div className={'titleWrapper'}>
+                <div className={'title'}>
+                    <div className={'text'}>Global Visualization</div>
+                </div>
+                <div className={'buttonsGrp'}>
+                    <ChildSelection types={types} btnClick={updateType} selected={type}/>
+                </div>
             </div>
             <WorldMap data={data} world={land} type={type}/>
         </div>

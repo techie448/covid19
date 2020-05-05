@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Charts from "./Charts/Charts";
 import dataset from './timeseries.json'
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
 
@@ -37,10 +38,7 @@ function App() {
         <div className="App">
             <Header count={count}/>
             <Charts latestDataset={latestDataset} dataset={source}/>
-            <footer>
-                Rishabh Kharbanda
-                made with love ..technol..
-            </footer>
+            <Footer/>
         </div>
     );
 }

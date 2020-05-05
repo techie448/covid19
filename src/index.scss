@@ -1,0 +1,14 @@
+@import "colors";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: $light;
+  border: 0;
+}
+
+body {
+  font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+}

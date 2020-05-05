@@ -1,0 +1,76 @@
+
+button:focus, select:focus {
+  outline: 0;
+}
+
+button:hover, select:hover {
+  cursor: pointer;
+  color: white;
+  transform: scale(1.2);
+  box-shadow: inset 0 0 0 0.2vmin $light;
+}
+
+.barD rect:hover {
+  fill: $light !important;
+  transition: 0.2s ease;
+}
+
+button:active {
+  background-color: white;
+}
+
+.barD rect {
+  transition: 1s ease-in;
+}
+
+.lineD svg > path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 0;
+  animation: animatePath 5s ease-out forwards;
+  box-shadow: black;
+  transition: 3s ease-in;
+}
+
+
+@keyframes animatePath {
+  from {
+    stroke-width: 5px;
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.worldD svg > path:hover {
+  fill: $bgcolor;
+
+}
+
+.redBtn {
+  background-color: $color-primary-2;
+  stroke: $color-primary-2;
+}
+
+rect.redBtn {
+  fill: $color-primary-2;
+}
+
+.blueBtn {
+  background-color: $color-secondary-2-0;
+  stroke: $color-secondary-2-0;
+}
+
+rect.blueBtn {
+  fill: $color-secondary-2-0;
+}
+
+.greenBtn {
+  background-color: $color-complement-2;
+  stroke: $color-complement-2;
+}
+
+rect.greenBtn {
+  fill: $color-complement-2;
+}
+

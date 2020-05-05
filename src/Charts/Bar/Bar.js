@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import BarChart from "./BarChart";
 import ChildSelection from "../ChildSelection";
 
-function Bar({inputData, days, types}) {
+function Bar({inputData, days, types, classes}) {
 
     const [data, setData] = useState({})
     const [type, setType] = useState(null)
@@ -19,10 +19,10 @@ function Bar({inputData, days, types}) {
     if (Object.keys(inputData).length < 1) return ('Loading...')
     return (
         <div className='barD'>
-
-            <ChildSelection types={types} btnClick={updateType} selected={type}/>
-
-            <BarChart data={data} type={type} days={days}/>
+            <div className={'buttonsGrp'}>
+                <ChildSelection types={types} btnClick={updateType} selected={type}/>
+            </div>
+            <BarChart data={data} type={type} days={days} selectedClass={classes[type]}/>
 
         </div>
     );

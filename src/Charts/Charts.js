@@ -15,7 +15,11 @@ function Charts({dataset, latestDataset}) {
     const [maxDays, setMaxDays] = useState(0)
     const [countries, setCountries] = useState([])
     const [types, setTypes] = useState([])
-
+    const [classes] = useState({
+        'confirmed': 'blueBtn',
+        'deaths': 'redBtn',
+        'recovered': 'greenBtn'
+    })
 
     useEffect(() => {
         const defaultCountry = 'Canada'
@@ -44,20 +48,21 @@ function Charts({dataset, latestDataset}) {
 
     return (
         <div className='charts'>
-            <div className={'title'}> World Race Chart</div>
             <Race inputData={data} startDate={startDate} endDate={endDate} types={types}/>
-            <div className={'title'}> Historical Data</div>
             <div className='lbD'>
-                <div>
-                    <Selection updateCountry={updateCountry} updateDays={updateDays} country={country} days={days}
-                               countries={countries} maxDays={maxDays}/></div>
-
+                <div className={'titleWrapper'}>
+                    <div className={'title'}>
+                        <div className={'text'}>Historical Data</div>
+                    </div>
+                    <div className={'buttonsGrp'}>
+                        <Selection updateCountry={updateCountry} updateDays={updateDays} country={country} days={days}
+                                   countries={countries} maxDays={maxDays}/></div>
+                </div>
                 <div className='libDCharts'>
-                    <Line inputData={data[country]} days={days} types={types}/>
-                    <Bar inputData={data[country]} days={days} types={types}/>
+                    <Line inputData={data[country]} days={days} types={types} classes={classes}/>
+                    <Bar inputData={data[country]} days={days} types={types} classes={classes}/>
                 </div>
             </div>
-            <div className={'title'}>Global Visualization</div>
 
             <World inputData={latestDataset} types={types}/>
         </div>

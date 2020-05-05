@@ -36,7 +36,7 @@ function Race({inputData, startDate, endDate, types}) {
     const updateType = (e) => {
         e.preventDefault()
         setType(e.target.value)
-        setBegin(false)
+        setBegin(true)
         setCurrDate(startDate)
 
     }
@@ -60,15 +60,19 @@ function Race({inputData, startDate, endDate, types}) {
     if (Object.keys(data).length < 1) return ('Loading...')
     return (
         <div className='raceD'>
-            <div className={'buttonsGrp'}>
-
-                <div className={'buttons'}>
-                    <button onClick={resetGraph} value='reset' className={'redBtn'}>reset</button>
-                    <button onClick={resetGraph} value='start' className={'greenBtn'}>start</button>
-                    <button onClick={resetGraph} value='pause' className={'blueBtn'}>pause</button>
+            <div className={'titleWrapper'}>
+                <div className={'title'}>
+                    <div className={'text'}> World Race Chart</div>
                 </div>
-                <ChildSelection types={types} btnClick={updateType} selected={type}/>
+                <div className={'buttonsGrp'}>
+                    <div className={'buttons'}>
+                        <button onClick={resetGraph} value='reset' className={'redBtn'}>reset</button>
+                        <button onClick={resetGraph} value='start' className={'greenBtn'}>start</button>
+                        <button onClick={resetGraph} value='pause' className={'blueBtn'}>pause</button>
+                    </div>
+                    <ChildSelection types={types} btnClick={updateType} selected={type}/>
 
+                </div>
             </div>
             <RaceChart data={data} startDate={startDate} currDate={currDate}/>
 

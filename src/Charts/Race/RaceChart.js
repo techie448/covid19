@@ -57,13 +57,13 @@ function RaceChart({data, currDate, startDate, reset}) {
         const xAxis = axisTop()
             .scale(xScale)
             .ticks(5)
-            .tickSize(-(height - margin.top - margin.bottom))
+            .tickSize(-(height * 0.8))
             .tickFormat(format(".0s"))
             .tickSizeOuter(0)
 
         select(xAxisRef.current)
             .attr('transform', `translate(${margin.left},${margin.top})`)
-            .style('font-size', '13px')
+            .style('font-size', 'calc(5px + 1vmin)')
             .transition()
             .duration(1000)
             .ease(easeLinear)
@@ -74,7 +74,7 @@ function RaceChart({data, currDate, startDate, reset}) {
             )
             .attr('class', 'label')
             .attr('x', margin.left * 2)
-            .style('font-size', '13px')
+            .style('font-size', 'calc(5px + 1vmin)')
             .transition()
             .duration(1000)
             .ease(easeLinear)
@@ -94,7 +94,7 @@ function RaceChart({data, currDate, startDate, reset}) {
             .attr('class', 'label2')
             .attr('x', margin.left * 2)
             .text(e => `${e.country}`)
-            .style('font-size', '13px')
+            .style('font-size', 'calc(5px + 1vmin)')
             .transition()
             .duration(1000)
             .ease(easeLinear)
@@ -122,12 +122,13 @@ function RaceChart({data, currDate, startDate, reset}) {
     }, [currDate, data, dimensions])
 
     return (
-        <div className='raceDD' ref={wrapperDivRef}>
+        <div className='RaceDD' ref={wrapperDivRef}>
 
             <svg ref={svgRef}>
                 <g ref={xAxisRef}/>
             </svg>
             <div className='date'>{currDate.toDateString()}</div>
+
         </div>
     );
 }

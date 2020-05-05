@@ -5,9 +5,10 @@ import {scaleLinear, scaleTime} from 'd3-scale'
 import {extent, max} from 'd3-array'
 import {timeFormat} from 'd3-time-format'
 import {axisBottom, axisLeft} from 'd3-axis'
+import {format} from "d3-format";
 
 
-function BarChart({data, days, type}) {
+function BarChart({data, days, type, selectedClass}) {
     const svgRef = useRef()
     const wrapperDivRef = useRef()
     const xAxisRef = useRef()
@@ -16,7 +17,7 @@ function BarChart({data, days, type}) {
 
     useEffect(() => {
         const margin = {
-            top: 20,
+            top: 40,
             bottom: 20,
             left: 50,
             right: 5
@@ -34,12 +35,12 @@ function BarChart({data, days, type}) {
         const gap = 1.15;
         const bar = (width - margin.left - margin.right) / barData.length / gap;
         const xScale = scaleTime().range([margin.left, width - margin.right]);
-        const yScale = scaleLinear().range([height - margin.bottom, margin.top]);
+        const yScale = scaleLinear().range([height - margin.top, margin.top]);
         const xAxis = axisBottom().scale(xScale).ticks(7)
             .tickFormat(timeFormat('%d %b'))
 
 
-        const yAxis = axisLeft().scale(yScale).ticks(7)
+        const yAxis = axisLeft().scale(yScale).ticks(7).tickFormat(format(".0s"))
         ;
         const dateDomain = extent(barData, d => d.date);
         const inputMax = max(barData, d => d.input);
@@ -48,26 +49,25 @@ function BarChart({data, days, type}) {
 
         select(xAxisRef.current)
             .call(xAxis)
-            .style('font-size', '13px')
-            .attr('transform', `translate(0,${height - margin.bottom})`);
+            .style('font-size', 'calc(5px + 1vmin)')
+            .attr('transform', `translate(0,${height - margin.top})`);
 
         select(yAxisRef.current)
             .call(yAxis)
-            .style('font-size', '13px')
+            .style('font-size', 'calc(5px + 1vmin)')
             .attr('transform', `translate(${margin.left},0)`);
 
         svg
             .selectAll('.rect')
             .data(barData)
             .join(enter => enter.append('rect'))
-            .attr('class', 'rect')
+            .attr('class', `rect ${selectedClass}`)
             .attr('x', (d, i) => margin.left + (i * bar * gap))
             .attr('y', d => {
                 return yScale(d.input)
             })
-            .style('fill', 'blue')
             .attr('height', d => {
-                return height - yScale(d.input) - margin.bottom
+                return height - yScale(d.input) - margin.top - 1
             })
             .attr('width', bar)
 
@@ -75,7 +75,7 @@ function BarChart({data, days, type}) {
     }, [data, days, dimensions, type])
 
     return (
-        <div ref={wrapperDivRef}>
+        <div ref={wrapperDivRef} className={'dd'}>
             <svg ref={svgRef}>
                 <g>
                     <g ref={xAxisRef}/>

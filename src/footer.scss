@@ -1,0 +1,58 @@
+html {
+  background: #1e1c27;
+
+}
+
+footer {
+  background: #1e1c27;
+  color: #777;
+  height: 15vh;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100vw;
+  font-size: calc(7px + 2vmin);
+  text-align: center;
+}
+
+footer * {
+  font-size: 1vmax;
+
+}
+
+footer > div {
+  justify-self: center;
+}
+
+footer svg {
+  height: calc(7px + 2vmin);
+  width: calc(7px + 2vmin);
+}
+
+.data {
+  color: #777;
+
+}
+
+a {
+  text-decoration: none;
+  color: #777;
+
+}
+
+a:hover {
+  color: $light;
+}
+
+div, p {
+  display: inline-block;
+}
+
+@media only all and (max-width: 768px) {
+  footer {
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+}

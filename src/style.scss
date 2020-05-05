@@ -1,430 +1,162 @@
-$bgcolor: #282c34;
-$bgcolor-light: #323a46;
-$light: #d3d3d3;
-$color-primary-0: #FF0000; // Main Primary color */
-$color-primary-1: #ff6464;
-$color-primary-2: #FF3939;
-$color-primary-3: #C60000;
-$color-primary-4: #9B0000;
+@import "header";
+@import "chart-colors-anims";
+@import "footer";
 
-$color-secondary-1-0: #FFD300; // Main Secondary color (1) */
-$color-secondary-1-1: #FFE464;
-$color-secondary-1-2: #FFDD39;
-$color-secondary-1-3: #C6A400;
-$color-secondary-1-4: #9B8100;
-
-$color-secondary-2-0: #3914AF; // Main Secondary color (2) */
-$color-secondary-2-1: #735ac4;
-$color-secondary-2-2: #5639B5;
-$color-secondary-2-3: #2B0F88;
-$color-secondary-2-4: #20096B;
-
-$color-complement-0: #00CC00; // Main Complement color */
-$color-complement-1: #55D955;
-$color-complement-2: #2FCF2F;
-$color-complement-3: #009E00;
-$color-complement-4: #007C00;
-
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  color: $light;
-  border: 0;
-}
-
-body {
-  font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-
-}
-
-header, footer, .title {
-  background-color: $bgcolor;
-  color: $light;
-}
-
-footer {
-  font-size: calc(8px + 1vmin);
-  min-height: 20vh;
-}
-
-header {
-  height: 100vh;
-  width: 100vw;
-  font-size: calc(10px + 3vmin);
-  display: grid;
-  grid-template-rows: 1fr 3fr 2fr;
-}
-
-header > a {
-  justify-self: end;
-  background: url("github.png") center;
-  background-size: contain;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-  margin: 20px;
-}
-
-header .heading {
-  justify-self: center;
-  text-align: center;
-}
-
-.bat {
-  height: 20vh;
-  width: auto;
-  display: block;
-  margin: auto auto 40px auto;
-  transition: 3s ease-out;
-}
-
-.bat:hover {
-  transform: scale(1.4) translate(0, -20px);
-  filter: drop-shadow(12px 12px 8px rgba(0, 0, 0, 0.6));
-
-}
-
-.info {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  text-align: center;
-  font-size: calc(8px + 1vmin);
-  font-weight: bold;
-  column-gap: 10px;
-}
-
-.out {
-  background: $bgcolor-light;
-  transition: 1s;
-  display: grid;
-  grid-template-rows: 3fr 1fr 1fr 1.5px;
-
-}
-
-.out > svg {
-  display: block;
-  height: 8vh;
-  width: auto;
-  place-self: center;
-}
-
-.raceD {
-  //max-width: 1000px;
-  margin: auto;
-  padding: 50px;
-
+$charts-gap: 3vmin;
+svg {
+  width: 100%;
+  height: 100%;
 }
 
 .charts {
-}
-
-
-
-.box.c {
-  background: $color-secondary-2-2;
-}
-
-.box.d {
-  background: $color-primary-2
-}
-
-.box.r {
-  background: $color-complement-0;
-}
-
-.f {
+  height: 500vh;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
-}
-
-.c.out:hover {
-  box-shadow: inset 0 0 0 1px $color-secondary-2-2;
-}
-
-.r.out:hover {
-  box-shadow: inset 0 0 0 1px $color-complement-4;
-}
-
-.d.out:hover {
-  box-shadow: inset 0 0 0 1px $color-primary-4;
-}
-
-.box {
-  animation: boxes 6s ease-in-out;
-}
-
-
-@keyframes boxes {
-  from {
-    transform: scaleX(0);
-  }
-}
-
-
-blockquote {
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  font-size: 0.4em;
-  max-width: 768px;
-  line-height: 2em;
-  animation: bq 15s infinite ease-in-out;
-  cursor: default;
-}
-
-@keyframes bq {
-  0% {
-    color: $light
-  }
-  50% {
-    color: #FF9999
-  }
-
-  100% {
-    color: $light
-  }
-}
-
-blockquote:before {
-  color: $color-primary-1;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-
-blockquote:after {
-  color: $color-primary-1;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.2em;
-  vertical-align: -0.4em;
-}
-
-figcaption {
-  display: block;
-  font-size: 0.4em;
-  margin: 20px;
-  color: $color-primary-1;
-
-}
-
-svg {
-  height: 60vh;
-  width: 100%;
-}
-
-.raceD, .lbD, .worldD {
-  height: 100vh;
-  width: 100vw;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: row;
+  row-gap: $charts-gap;
+  padding: $charts-gap;
   background-color: $bgcolor;
-  padding: 0;
   font-size: calc(10px + 3vmin);
-  color: grey;
 
-  .label, .label2 {
-    fill: $light;
-  }
+  .raceD, .lbD, .worldD {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-items: stretch;
+    background-color: $bgcolor-light;
 
-  .date {
-    font-size: calc(5px + 1.5vmin);
-    text-align: right;
-    padding: 20px;
+    .titleWrapper {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
 
-  }
+    .libDCharts {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+      column-gap: $charts-gap;
+      padding: 0 $charts-gap $charts-gap $charts-gap;
+    }
 
-  .raceD {
+    .lineD, .barD {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
 
-    .date {
-      padding: 2%;
+    .RaceDD {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .title {
+      font-size: calc(10px + 3vmin);
+      background-size: cover;
+      display: grid;
+      grid-template-areas: "." "text" "." "."
+    }
+
+    .title .text {
+      grid-area: text;
+      justify-self: center;
+
+    }
+
+    .buttonsGrp {
+      padding: $charts-gap;
+      display: grid;
+
+      .buttons, .sel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        justify-self: center;
+      }
     }
   }
-
 }
 
-.lbD, .worldD {
-  grid-template-rows: 1fr 9fr;
-
-}
-
-.libDCharts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 0 5% 5% 5%;
-  grid-gap: 1% 1%;
-
-}
-
-.barD, .lineD {
-  display: grid;
-  grid-template-rows: 2fr 8fr;
-}
-
-
-.buttons {
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-.sel {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: center;
-  gap: 5vw;
-}
-
-.buttonsGrp {
-  display: grid;
-}
-
-select {
+button, select {
   -webkit-appearance: none;
   border-radius: 0;
-  background-color: rgb(0, 123, 255);
-  color: $light;
   text-align-last: center;
-  padding: 15px 40px;
-  width: 50vw;
-  max-width: 200px;
-  transition: 0.2s ease-out;
-  text-transform: uppercase;
-  place-self: center;
-
-}
-
-option {
-  padding: 10px 20px;
-  text-transform: uppercase;
-}
-
-button:focus, select:focus {
-  outline: 0;
-}
-
-button:hover, select:hover {
-  cursor: pointer;
-  color: white;
-  transform: scale(1.2);
-  box-shadow: inset 0 0 0 1px $light;
-}
-
-.barD rect:hover {
-  fill: $light !important;
-  transition: 0.2s ease;
-}
-
-button:active {
-  background-color: white;
-}
-
-button {
-
-  margin: 20px;
-  padding: 10px 20px;
-  border: 0;
+  margin: 2vmin;
+  padding: 1vmin 2vmin;
   transition: 0.2s ease-out;
   text-transform: uppercase;
   font-size: calc(5px + 1vmin);
-  min-width: 150px;
-  place-self: center;
   color: $light;
-  background-color: $bgcolor-light;
+  background-color: $bgcolor-light-light;
   font-weight: bold;
+  max-height: 6vmin;
+}
+
+.date {
+  font-size: calc(5px + 1.5vmin);
+  text-align: right;
+  padding: 2%;
+}
+
+option {
+  padding: 1vmin 2vmin;
+}
+
+.label, .label2 {
+  fill: $light;
+}
+
+.raceD .title {
+  background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 1)
+  ),
+  url('race.jpg') center;
+}
+
+.lbD .title {
+  background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 1)
+  ),
+  url('history.jpg');
 }
 
 
-.barD rect {
-  transition: 1s ease-in;
+.worldD .title {
+  background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0),
+                  rgba(0, 0, 0, 1)
+  ),
+  url('world.jpg');
+  background-size: cover;
 }
 
-.lineD svg > path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 0;
-  animation: animatePath 5s ease-out forwards;
-  box-shadow: black;
-  transition: 3s ease-in;
+#root > div > div > div.lbD > div.titleWrapper > div.buttonsGrp {
+  padding-bottom: 0;
 }
 
-
-@keyframes animatePath {
-  from {
-    stroke-width: 5px;
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+select {
+  margin-bottom: 0;
 }
 
-.worldD svg > path:hover {
-  fill: $bgcolor-light;
+.worldD .label {
+  box-shadow: inset 0 0 0 0.2vmin $light;
 
 }
-
-.title {
-  height: 60vh;
-  text-align: center;
-  font-size: calc(10px + 3vmin);
-}
-
-.redBtn {
-  background-color: $color-primary-2;
-  stroke: $color-primary-2;
-}
-
-.blueBtn {
-  background-color: $color-secondary-2-0;
-  stroke: $color-secondary-2-0;
-}
-
-.greenBtn {
-  background-color: $color-complement-2;
-  stroke: $color-complement-2;
-}
-
-.buttons {
-  justify-content: center;
-}
-
-.worldD .buttons {
-  padding-bottom: 50px;
-}
-
-@media only all and (max-width: 1000px) {
-  .libDCharts {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    display: grid;
-
-  }
-  .lineD, .barD {
-
-    padding-top: 5vh;
-  }
-}
-
 @media only all and (max-width: 768px) {
-
-  header {
-    grid-template-rows: 0.5fr 2fr 3fr;
+  .charts .lbD .libDCharts {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: initial;
+    row-gap: $charts-gap;
+    padding: 0 $charts-gap $charts-gap $charts-gap;
   }
-  .info {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
-    row-gap: 10px;
+  .charts {
+    grid-template-rows: 2fr 3fr 2fr;
+
+    .lbD {
+      grid-template-rows: 1fr 2fr;
+    }
+
   }
-
-  .out {
-    background: $bgcolor-light;
-    transition: 1s;
-    display: grid;
-    grid-template-rows: 3fr 1fr 1fr 1.5px;
-  }
-
-
 }

@@ -66,14 +66,15 @@ function WorldMap({data, type, world}) {
                     f.properties.name + ': ' + ((data[f.properties.name]) ? (data[f.properties.name][0][type])
                     : 0)
             )
-            .attr('x', 10)
-            .attr('y', 25)
+            .style('fill', f => colorRange[type][2])
+            .attr('x', 50)
+            .attr('y', 50)
 
     }, [data, dimensions, type, world, sel])
 
     return (
-        <div ref={wrapperDivRef} style={{marginBottom: '2rem'}}>
-            <svg ref={svgRef} style={{backgroundColor: '#c5e8ff'}}>
+        <div ref={wrapperDivRef} style={{marginBottom: '2rem'}} className={'dd'}>
+            <svg ref={svgRef}>
             </svg>
         </div>
     );
