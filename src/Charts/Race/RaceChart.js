@@ -3,14 +3,13 @@ import useResizeObserver from "../../Hooks/useResizeObserver";
 import {select} from 'd3-selection'
 import {scaleBand, scaleLinear, scaleOrdinal} from 'd3-scale'
 import {max} from 'd3-array'
-import {easeBackIn, easeCircle, easeLinear, easeQuad} from 'd3-ease'
+import {easeLinear} from 'd3-ease'
 import {schemeCategory10} from 'd3-scale-chromatic'
-import {interpolate, interpolateDate} from 'd3-interpolate'
-import {timeFormat} from 'd3-time-format'
+import {interpolate} from 'd3-interpolate'
 import {format} from 'd3-format'
 // eslint-disable-next-line no-unused-vars
 import {transition} from "d3-transition";
-import {axisBottom, axisTop} from "d3-axis";
+import {axisTop} from "d3-axis";
 
 
 function RaceChart({data, currDate, startDate, reset}) {
@@ -99,25 +98,6 @@ function RaceChart({data, currDate, startDate, reset}) {
             .duration(1000)
             .ease(easeLinear)
             .attr('y', (e, i) => yScale(i) + yScale.bandwidth() * 0.8)
-        var formatTime = timeFormat("%a %d %b, %y %H:%M");
-
-        // svg.selectAll('.l3')
-        //     .data([currDate])
-        //     .join('text')
-        //     .attr('class', 'l3')
-        //     .attr('x', width*0.75)
-        //     .attr('y', height / 1.2)
-        //     .text(d => formatTime(d))
-        //     .transition()
-        //     .duration(1000)
-        //     .ease(easeLinear)
-        //     .tween("text", function (d) {
-        //         let i = interpolateDate(new Date(this.textContent), d);
-        //         return function (t) {
-        //             select(this).text(formatTime(i(t)));
-        //         };
-        //     });
-
 
     }, [currDate, data, dimensions])
 

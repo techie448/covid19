@@ -50,12 +50,12 @@ function BarChart({data, days, type, selectedClass}) {
         select(xAxisRef.current)
             .call(xAxis)
             .style('font-size', 'calc(5px + 1vmin)')
-            .attr('transform', `translate(0,${height - margin.top})`);
+            .attr('transform', `translate(0,${height - margin.top + 1})`);
 
         select(yAxisRef.current)
             .call(yAxis)
             .style('font-size', 'calc(5px + 1vmin)')
-            .attr('transform', `translate(${margin.left},0)`);
+            .attr('transform', `translate(${margin.left},1)`);
 
         svg
             .selectAll('.rect')
@@ -67,12 +67,12 @@ function BarChart({data, days, type, selectedClass}) {
                 return yScale(d.input)
             })
             .attr('height', d => {
-                return height - yScale(d.input) - margin.top - 1
+                return height - yScale(d.input) - margin.top
             })
             .attr('width', bar)
 
 
-    }, [data, days, dimensions, type])
+    }, [selectedClass, data, days, dimensions, type])
 
     return (
         <div ref={wrapperDivRef} className={'dd'}>

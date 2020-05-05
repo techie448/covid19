@@ -2,11 +2,8 @@ import React, {useEffect, useState} from 'react';
 import RaceChart from "./RaceChart";
 import useInterval from "../../Hooks/useInterval";
 import ChildSelection from "../ChildSelection";
-import userEvent from "@testing-library/user-event";
 
 function Race({inputData, startDate, endDate, types}) {
-
-    // todo add buttons to change conf death etc. and add button to reset and replay race
 
     const [type, setType] = useState(null)
     const [currDate, setCurrDate] = useState(startDate)

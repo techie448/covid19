@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import LineChart from "./LineChart";
-import ChildSelection from "../ChildSelection";
 
 function Line({inputData, days, types, classes}) {
     const lineDRef = useRef()

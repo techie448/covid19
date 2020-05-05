@@ -4,7 +4,6 @@ import {ReactComponent as Fight} from "./fight.svg";
 import {ReactComponent as Recovered} from "./medical.svg";
 import {ReactComponent as Death} from "./death.svg";
 import CountUp from 'react-countup';
-import NumberFormat from "react-number-format";
 
 function Info({endDate, count}) {
     return (
