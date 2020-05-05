@@ -30,22 +30,21 @@ footer svg {
   width: calc(7px + 2vmin);
 }
 
-.data {
+footer .data {
   color: #777;
 
 }
 
-a {
+footer a {
   text-decoration: none;
   color: #777;
-
 }
 
-a:hover {
+footer a:hover {
   color: $light;
 }
 
-div, p {
+footer div, footer p {
   display: inline-block;
 }
 

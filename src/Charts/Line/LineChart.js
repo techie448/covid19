@@ -54,6 +54,7 @@ function LineChart({data, days, type, classes}) {
 
     }, [data, type, dimensions, days])
 
+    if (dimensions) console.log(dimensions.height)
     return (
         <div ref={wrapperDivRef} className={'dd'}>
             <svg ref={svgRef}>

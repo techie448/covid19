@@ -3,10 +3,7 @@
 @import "footer";
 
 $charts-gap: 3vmin;
-svg {
-  width: 100%;
-  height: 100%;
-}
+
 
 .charts {
   height: 500vh;
@@ -17,11 +14,13 @@ svg {
   padding: $charts-gap;
   background-color: $bgcolor;
   font-size: calc(10px + 3vmin);
+.raceD {
+  grid-template-rows: 1fr 1fr auto;
+}
 
   .raceD, .lbD, .worldD {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    justify-items: stretch;
     background-color: $bgcolor-light;
 
     .titleWrapper {
@@ -42,9 +41,8 @@ svg {
       grid-template-rows: auto 1fr;
     }
 
-    .RaceDD {
-      display: grid;
-      grid-template-rows: 1fr auto;
+    .RaceDD, .dd {
+      display: flex;
     }
 
     .title {
@@ -72,6 +70,10 @@ svg {
       }
     }
   }
+
+  .raceD {
+    grid-template-rows: auto 45% 5%;
+  }
 }
 
 button, select {
@@ -91,8 +93,9 @@ button, select {
 
 .date {
   font-size: calc(5px + 1.5vmin);
-  text-align: right;
   padding: 2%;
+  justify-self: end;
+  align-self: center;
 }
 
 option {
@@ -143,6 +146,11 @@ select {
 .worldD .label {
   box-shadow: inset 0 0 0 0.2vmin $light;
 
+}
+
+.charts svg {
+  width: 100%;
+  height: 100%;
 }
 @media only all and (max-width: 768px) {
   .charts .lbD .libDCharts {

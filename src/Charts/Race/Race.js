@@ -72,7 +72,7 @@ function Race({inputData, startDate, endDate, types}) {
                 </div>
             </div>
             <RaceChart data={data} startDate={startDate} currDate={currDate}/>
-
+            <div className='date'>{currDate.toDateString()}</div>
         </div>
     );
 }

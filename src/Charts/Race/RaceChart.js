@@ -102,13 +102,11 @@ function RaceChart({data, currDate, startDate, reset}) {
     }, [currDate, data, dimensions])
 
     return (
-        <div className='RaceDD' ref={wrapperDivRef}>
+        <div className={'RaceDD'} ref={wrapperDivRef}>
 
             <svg ref={svgRef}>
                 <g ref={xAxisRef}/>
             </svg>
-            <div className='date'>{currDate.toDateString()}</div>
-
         </div>
     );
 }
