@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import WorldMap from "./WorldMap";
-import land from '../../world.json'
-import ChildSelection from "../ChildSelection";
+import land from './world.json'
+import ChildSelection from "../Builder Components/ChildSelection";
+import Loading from "../../loading";
 
 function World({inputData, types}) {
 
@@ -15,7 +16,7 @@ function World({inputData, types}) {
         e.preventDefault()
         setType(e.target.value)
     }
-    if (Object.keys(data).length < 1) return ('Loading...')
+    if (Object.keys(data).length < 1) return <Loading/>
     return (
         <div className='worldD'>
             <div className={'titleWrapper'}>

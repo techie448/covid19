@@ -13,9 +13,17 @@ header {
   grid-template-rows: 1fr 3fr 2fr;
 }
 
+.loading {
+  font-size: calc(10px + 3vmin);
+  text-align: center;
+  line-height: 100vh;
+  background-color: $bgcolor;
+  color: $light;
+}
+
 header > a {
   justify-self: end;
-  background: url("github.png") center;
+  background: url("../Images/github.png") center;
   background-size: contain;
 }
 

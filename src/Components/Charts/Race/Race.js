@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import RaceChart from "./RaceChart";
-import useInterval from "../../Hooks/useInterval";
-import ChildSelection from "../ChildSelection";
+import useInterval from "../../Cutom Hooks/useInterval";
+import ChildSelection from "../Builder Components/ChildSelection";
+import Loading from "../../loading";
 
 function Race({inputData, startDate, endDate, types}) {
 
@@ -54,7 +55,7 @@ function Race({inputData, startDate, endDate, types}) {
         }
     }, 1000)
 
-    if (Object.keys(data).length < 1) return ('Loading...')
+    if (Object.keys(data).length < 1) return <Loading/>
     return (
         <div className='raceD'>
             <div className={'titleWrapper'}>

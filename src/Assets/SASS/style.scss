@@ -112,7 +112,7 @@ option {
                   rgba(0, 0, 0, 0),
                   rgba(0, 0, 0, 1)
   ),
-  url('race.jpg') center;
+  url('../Images/race.jpg') center;
 }
 
 .lbD .title {
@@ -121,7 +121,7 @@ option {
                   rgba(0, 0, 0, 0),
                   rgba(0, 0, 0, 1)
   ),
-  url('history.jpg');
+  url('../Images/history.jpg');
 }
 
 
@@ -131,7 +131,7 @@ option {
                   rgba(0, 0, 0, 0),
                   rgba(0, 0, 0, 1)
   ),
-  url('world.jpg');
+  url('../Images/world.jpg');
   background-size: cover;
 }
 

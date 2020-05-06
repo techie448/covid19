@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import useResizeObserver from "../../Hooks/useResizeObserver";
+import useResizeObserver from "../../Cutom Hooks/useResizeObserver";
 import {select} from 'd3-selection'
 import {scaleLinear} from 'd3-scale'
 import {max, min} from 'd3-array'

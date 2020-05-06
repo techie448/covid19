@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import useResizeObserver from "../../Hooks/useResizeObserver";
+import useResizeObserver from "../../Cutom Hooks/useResizeObserver";
 import {select} from 'd3-selection'
 import {scaleLinear, scaleTime} from 'd3-scale'
 import {extent, max} from 'd3-array'
@@ -73,7 +73,6 @@ function BarChart({data, days, type, selectedClass}) {
 
 
     }, [selectedClass, data, days, dimensions, type])
-
     return (
         <div ref={wrapperDivRef} className={'dd'}>
             <svg ref={svgRef}>

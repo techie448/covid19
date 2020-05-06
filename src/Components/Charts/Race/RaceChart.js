@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import useResizeObserver from "../../Hooks/useResizeObserver";
+import useResizeObserver from "../../Cutom Hooks/useResizeObserver";
 import {select} from 'd3-selection'
 import {scaleBand, scaleLinear, scaleOrdinal} from 'd3-scale'
 import {max} from 'd3-array'
@@ -12,7 +12,7 @@ import {transition} from "d3-transition";
 import {axisTop} from "d3-axis";
 
 
-function RaceChart({data, currDate, startDate, reset}) {
+function RaceChart({data, currDate}) {
 
     const svgRef = useRef()
     const wrapperDivRef = useRef()
@@ -40,7 +40,7 @@ function RaceChart({data, currDate, startDate, reset}) {
         let accent = scaleOrdinal(schemeCategory10);
         svg
             .selectAll('.bar')
-            .data(data, (e, i) => e.country)
+            .data(data)
             .join(enter => enter.append('rect').attr('y', (v, i) => yScale(i))
             )
             .attr('class', 'bar')
@@ -79,7 +79,7 @@ function RaceChart({data, currDate, startDate, reset}) {
             .ease(easeLinear)
             .attr('y', (e, i) => yScale(i) + yScale.bandwidth() * 0.4)
             .tween("text", function (d) {
-                let i = interpolate(+(this.textContent.replace(',', '')), d.value);
+                let i = interpolate(+(this.textContent.split(',').join('')), d.value);
                 return function (t) {
                     select(this).text(Math.round(i(t)).toLocaleString());
                 };
@@ -87,7 +87,7 @@ function RaceChart({data, currDate, startDate, reset}) {
 
 
         svg.selectAll('.label2')
-            .data(data, (e, i) => e.country)
+            .data(data)
             .join(enter => enter.append('text').attr('y', (e, i) => yScale(i) + yScale.bandwidth() * 0.8)
             )
             .attr('class', 'label2')

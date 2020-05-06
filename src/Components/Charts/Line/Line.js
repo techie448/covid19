@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import LineChart from "./LineChart";
+import Loading from "../../loading";
 
 function Line({inputData, days, types, classes}) {
     const lineDRef = useRef()
@@ -20,7 +21,7 @@ function Line({inputData, days, types, classes}) {
     }, [inputData, types])
 
 
-    if (Object.keys(inputData).length < 1) return ('Loading...')
+    if (Object.keys(inputData).length < 1) return <Loading/>
     return (
         <div className='lineD' ref={lineDRef}>
             <div className={'buttonsGrp'}>

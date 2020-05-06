@@ -1,7 +1,7 @@
 import React from 'react';
-import {ReactComponent as Love} from "./loving.svg";
-import {ReactComponent as ReactLogo} from "./react.svg";
-import {ReactComponent as D3Logo} from "./d3.svg";
+import {ReactComponent as Love} from "./SVG/loving.svg";
+import {ReactComponent as ReactLogo} from "./SVG/react.svg";
+import {ReactComponent as D3Logo} from "./SVG/d3.svg";
 
 function Footer(props) {
     return (

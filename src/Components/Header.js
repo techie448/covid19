@@ -1,6 +1,6 @@
 import React from 'react';
 import Info from "./info";
-import {ReactComponent as Bat} from "./bat.svg";
+import {ReactComponent as Bat} from "./SVG/bat.svg";
 
 function Header({count}) {
     return (

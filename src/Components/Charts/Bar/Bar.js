@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import BarChart from "./BarChart";
-import ChildSelection from "../ChildSelection";
+import ChildSelection from "../Builder Components/ChildSelection";
+import Loading from "../../loading";
 
 function Bar({inputData, days, types, classes}) {
 
@@ -16,7 +17,7 @@ function Bar({inputData, days, types, classes}) {
     }, [types, inputData])
 
 
-    if (Object.keys(inputData).length < 1) return ('Loading...')
+    if (Object.keys(inputData).length < 1) return <Loading/>
     return (
         <div className='barD'>
             <div className={'buttonsGrp'}>

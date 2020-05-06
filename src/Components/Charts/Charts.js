@@ -3,7 +3,8 @@ import Race from "./Race/Race";
 import Line from "./Line/Line";
 import Bar from "./Bar/Bar";
 import World from "./World/World";
-import Selection from "./Selection";
+import Selection from "./Builder Components/Selection";
+import Loading from "../loading";
 
 function Charts({dataset, latestDataset}) {
 
@@ -34,7 +35,7 @@ function Charts({dataset, latestDataset}) {
         setEndDate(endDate)
         setData(dataset)
         setCountry(defaultCountry)
-        setDays(Math.round(totalDays / 2))
+        setDays(20)
         setMaxDays(totalDays)
         setCountries(Object.keys(dataset))
 
@@ -44,8 +45,7 @@ function Charts({dataset, latestDataset}) {
     const updateDays = (e) => setDays(e.target.value)
 
 
-    if (Object.keys(data).length < 1) return ('loading')
-
+    if (Object.keys(data).length < 1) return <Loading/>
     return (
         <div className='charts'>
             <Race inputData={data} startDate={startDate} endDate={endDate} types={types}/>
