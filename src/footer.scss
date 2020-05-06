@@ -51,7 +51,8 @@ footer div, footer p {
 @media only all and (max-width: 768px) {
   footer {
     grid-auto-flow: row;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: none;
   }
 
 }
