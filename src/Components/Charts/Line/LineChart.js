@@ -23,7 +23,7 @@ function LineChart({data, days, type, classes}) {
             top: 40,
             bottom: 20,
             left: 50,
-            right: 5
+            right: 50
         }
         if (!dimensions) return
         const {width, height} = dimensions;
@@ -31,9 +31,9 @@ function LineChart({data, days, type, classes}) {
         const xScale = scaleTime().range([margin.left, width - margin.right]);
         const yScale = scaleLinear().range([height - margin.top, margin.top]);
         const lineG = line()
-        const xAxis = axisBottom().scale(xScale).ticks(7)
+        const xAxis = axisBottom().scale(xScale).ticks(5)
             .tickFormat(timeFormat('%d %b'))
-        const yAxis = axisLeft().scale(yScale).ticks(7).tickFormat(format(".0s"))
+        const yAxis = axisLeft().scale(yScale).ticks(7).tickFormat(format(".2s"))
 
         const lineData = data.slice(-days);
         const dateDomain = extent(lineData, d => d.date);

@@ -57,7 +57,7 @@ function RaceChart({data, currDate}) {
             .scale(xScale)
             .ticks(5)
             .tickSize(-(height * 0.8))
-            .tickFormat(format(".0s"))
+            .tickFormat(format(".2s"))
             .tickSizeOuter(0)
 
         select(xAxisRef.current)

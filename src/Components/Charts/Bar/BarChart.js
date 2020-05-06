@@ -20,7 +20,7 @@ function BarChart({data, days, type, selectedClass}) {
             top: 40,
             bottom: 20,
             left: 50,
-            right: 5
+            right: 50
         }
         const svg = select(svgRef.current)
         if (!dimensions) return
@@ -36,11 +36,11 @@ function BarChart({data, days, type, selectedClass}) {
         const bar = (width - margin.left - margin.right) / barData.length / gap;
         const xScale = scaleTime().range([margin.left, width - margin.right]);
         const yScale = scaleLinear().range([height - margin.top, margin.top]);
-        const xAxis = axisBottom().scale(xScale).ticks(7)
+        const xAxis = axisBottom().scale(xScale).ticks(5)
             .tickFormat(timeFormat('%d %b'))
 
 
-        const yAxis = axisLeft().scale(yScale).ticks(7).tickFormat(format(".0s"))
+        const yAxis = axisLeft().scale(yScale).ticks(7).tickFormat(format(".2s"))
         ;
         const dateDomain = extent(barData, d => d.date);
         const inputMax = max(barData, d => d.input);
@@ -62,7 +62,7 @@ function BarChart({data, days, type, selectedClass}) {
             .data(barData)
             .join(enter => enter.append('rect'))
             .attr('class', `rect ${selectedClass}`)
-            .attr('x', (d, i) => margin.left + (i * bar * gap))
+            .attr('x', (d, i) => margin.left + 2 + +(i * bar * gap))
             .attr('y', d => {
                 return yScale(d.input)
             })
