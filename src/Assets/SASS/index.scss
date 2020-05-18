@@ -7,7 +7,9 @@
   color: $light;
   border: 0;
 }
-
+header, footer{
+  max-width: 100%;
+}
 body {
   font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 
