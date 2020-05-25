@@ -1,31 +1,31 @@
 {
   "files": {
-    "main.css": "/covid19/static/css/main.4a8eef5e.chunk.css",
-    "main.js": "/covid19/static/js/main.05308f63.chunk.js",
-    "main.js.map": "/covid19/static/js/main.05308f63.chunk.js.map",
+    "main.css": "/covid19/static/css/main.c8dd6475.chunk.css",
+    "main.js": "/covid19/static/js/main.4c5a498d.chunk.js",
+    "main.js.map": "/covid19/static/js/main.4c5a498d.chunk.js.map",
     "runtime-main.js": "/covid19/static/js/runtime-main.06ba182b.js",
     "runtime-main.js.map": "/covid19/static/js/runtime-main.06ba182b.js.map",
-    "static/js/2.24d0518f.chunk.js": "/covid19/static/js/2.24d0518f.chunk.js",
-    "static/js/2.24d0518f.chunk.js.map": "/covid19/static/js/2.24d0518f.chunk.js.map",
+    "static/js/2.f7ff015f.chunk.js": "/covid19/static/js/2.f7ff015f.chunk.js",
+    "static/js/2.f7ff015f.chunk.js.map": "/covid19/static/js/2.f7ff015f.chunk.js.map",
     "index.html": "/covid19/index.html",
-    "precache-manifest.4e4e1da3398995270b2e4adb6ea8203f.js": "/covid19/precache-manifest.4e4e1da3398995270b2e4adb6ea8203f.js",
+    "precache-manifest.e7c441df9133627b2f6d451f307ea7f9.js": "/covid19/precache-manifest.e7c441df9133627b2f6d451f307ea7f9.js",
     "service-worker.js": "/covid19/service-worker.js",
-    "static/css/main.4a8eef5e.chunk.css.map": "/covid19/static/css/main.4a8eef5e.chunk.css.map",
-    "static/js/2.24d0518f.chunk.js.LICENSE.txt": "/covid19/static/js/2.24d0518f.chunk.js.LICENSE.txt",
-    "static/media/bat.cb60ea5e.svg": "/covid19/static/media/bat.cb60ea5e.svg",
-    "static/media/d3.db430091.svg": "/covid19/static/media/d3.db430091.svg",
-    "static/media/death.58ad6407.svg": "/covid19/static/media/death.58ad6407.svg",
-    "static/media/fight.a569a0db.svg": "/covid19/static/media/fight.a569a0db.svg",
+    "static/css/main.c8dd6475.chunk.css.map": "/covid19/static/css/main.c8dd6475.chunk.css.map",
+    "static/js/2.f7ff015f.chunk.js.LICENSE.txt": "/covid19/static/js/2.f7ff015f.chunk.js.LICENSE.txt",
+    "static/media/bat.fff1a8d5.svg": "/covid19/static/media/bat.fff1a8d5.svg",
+    "static/media/d3.73d51985.svg": "/covid19/static/media/d3.73d51985.svg",
+    "static/media/death.a2de2317.svg": "/covid19/static/media/death.a2de2317.svg",
+    "static/media/fight.1aed6678.svg": "/covid19/static/media/fight.1aed6678.svg",
     "static/media/style.scss": "/covid19/static/media/world.6beba944.jpg",
-    "static/media/loving.1b1c69a9.svg": "/covid19/static/media/loving.1b1c69a9.svg",
-    "static/media/medical.fc3de8b6.svg": "/covid19/static/media/medical.fc3de8b6.svg",
-    "static/media/react.41ae0c9a.svg": "/covid19/static/media/react.41ae0c9a.svg",
-    "static/media/virus.d7c9ae25.svg": "/covid19/static/media/virus.d7c9ae25.svg"
+    "static/media/loving.3dab0768.svg": "/covid19/static/media/loving.3dab0768.svg",
+    "static/media/medical.6fd55c70.svg": "/covid19/static/media/medical.6fd55c70.svg",
+    "static/media/react.8e91acce.svg": "/covid19/static/media/react.8e91acce.svg",
+    "static/media/virus.136ce0f1.svg": "/covid19/static/media/virus.136ce0f1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.06ba182b.js",
-    "static/js/2.24d0518f.chunk.js",
-    "static/css/main.4a8eef5e.chunk.css",
-    "static/js/main.05308f63.chunk.js"
+    "static/js/2.f7ff015f.chunk.js",
+    "static/css/main.c8dd6475.chunk.css",
+    "static/js/main.4c5a498d.chunk.js"
   ]
 }
