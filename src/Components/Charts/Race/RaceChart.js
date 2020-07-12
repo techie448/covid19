@@ -13,7 +13,6 @@ import {axisTop} from "d3-axis";
 
 
 function RaceChart({data, currDate}) {
-
     const svgRef = useRef()
     const wrapperDivRef = useRef()
     const xAxisRef = useRef()
@@ -44,7 +43,7 @@ function RaceChart({data, currDate}) {
             .join(enter => enter.append('rect').attr('y', (v, i) => yScale(i))
             )
             .attr('class', 'bar')
-            .attr('fill', d => accent(d.value))
+            .attr('fill', d => accent(d.country))
             .attr('x', margin.left + 1)
             .attr('height', yScale.bandwidth())
             .transition()

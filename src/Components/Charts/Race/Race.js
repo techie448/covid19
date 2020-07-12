@@ -7,8 +7,8 @@ import Loading from "../../loading";
 function Race({inputData, startDate, endDate, types}) {
 
     const [type, setType] = useState(null)
-    const [currDate, setCurrDate] = useState(startDate)
-    const [begin, setBegin] = useState(true)
+    const [currDate, setCurrDate] = useState(endDate)
+    const [begin, setBegin] = useState(false)
     const [data, setData] = useState({})
     useEffect(() => {
         setType(types[0])
@@ -28,22 +28,23 @@ function Race({inputData, startDate, endDate, types}) {
                 })
             })
             .sort((a, b) => b.value - a.value)
-            .slice(0, 10))
+            .slice(0,10)
+        )
 
     }, [currDate, type, inputData])
     const updateType = (e) => {
         e.preventDefault()
         setType(e.target.value)
-        setBegin(true)
-        setCurrDate(startDate)
-
     }
     const resetGraph = (e) => {
         e.preventDefault()
-        if (e.target.value === 'start') setBegin(true)
-        if (e.target.value === 'pause') setBegin(false)
-        if (e.target.value === 'reset') {
+        if (e.target.value === 'start') {
             setCurrDate(startDate)
+            setBegin(true)
+        }
+        else if (e.target.value === 'pause') setBegin(!begin)
+        else if (e.target.value === 'end') {
+            setCurrDate(endDate)
             setBegin(false)
         }
 
@@ -64,9 +65,9 @@ function Race({inputData, startDate, endDate, types}) {
                 </div>
                 <div className={'buttonsGrp'}>
                     <div className={'buttons'}>
-                        <button onClick={resetGraph} value='reset' className={'redBtn'}>reset</button>
-                        <button onClick={resetGraph} value='start' className={'greenBtn'}>start</button>
-                        <button onClick={resetGraph} value='pause' className={'blueBtn'}>pause</button>
+                        <button onClick={resetGraph} value='start' className={'blueBtn'}>begin</button>
+                        <button onClick={resetGraph} value='pause'>pause/play</button>
+                        <button onClick={resetGraph} value='end' className={'redBtn'}>end</button>
                     </div>
                     <ChildSelection types={types} btnClick={updateType} selected={type}/>
 
